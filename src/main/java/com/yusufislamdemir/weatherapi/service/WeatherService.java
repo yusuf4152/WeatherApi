@@ -41,20 +41,20 @@ public class WeatherService {
     public Weather WeatherOneDay(String cityName, String countryCode) {
         checkCityNameAndCountryCode(cityName, countryCode);
         return restTemplate
-                .getForObject(baseUrl + "/forecast.json" + "?key=" + apiKey + "&q=" + cityName + baseCountryCode + "&days=1", Weather.class);
+                .getForObject(String.format("%s/forecast.json?key=%s&q=%s%s&days=1", baseUrl, apiKey, cityName, baseCountryCode), Weather.class);
     }
 
     // get oneWeek Weather
     public Weather WeatherOneWeek(String cityName, String countryCode) {
         checkCityNameAndCountryCode(cityName, countryCode);
         return restTemplate
-                .getForObject(baseUrl + "/forecast.json" + "?key=" + apiKey + "&q=" + cityName + baseCountryCode + "&days=7", Weather.class);
+                .getForObject(String.format("%s/forecast.json?key=%s&q=%s%s&days=7", baseUrl, apiKey, cityName, baseCountryCode), Weather.class);
     }
 
     // get oneMonthWeather
     public Weather WeatherOneMonth(String cityName, String countryCode) {
         checkCityNameAndCountryCode(cityName, countryCode);
         return restTemplate
-                .getForObject(baseUrl + "/forecast.json" + "?key=" + apiKey + "&q=" + cityName + baseCountryCode + "&days=15", Weather.class);
+                .getForObject(String.format("%s/forecast.json?key=%s&q=%s%s&days=15", baseUrl, apiKey, cityName, baseCountryCode), Weather.class);
     }
 }
