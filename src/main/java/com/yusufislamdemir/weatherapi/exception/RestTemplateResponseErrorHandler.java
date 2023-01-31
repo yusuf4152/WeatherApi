@@ -25,7 +25,8 @@ public class RestTemplateResponseErrorHandler
                 httpResponse.getStatusCode().series() == CLIENT_ERROR
                         || httpResponse.getStatusCode().series() == SERVER_ERROR);
     }
-
+    //If there is a badrequest error from the API we use, I smashed the default in the restTemplate's errorHandler
+    // and formatted the error by putting our own errorhandler to catch it.
     @Override
     public void handleError(ClientHttpResponse httpResponse)
             throws IOException {
